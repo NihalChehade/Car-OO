@@ -9,19 +9,19 @@ class Vehicle {
         return "Beep.";
     }
     toString() {
-        return `The vehicle is ${make} ${model} from ${year}`;
+        return `The vehicle is ${this.make} ${this.model} from ${this.year}`;
     }
 }
 
 class Car extends Vehicle {
-    constructor() {
-       super();
+    constructor(make, model, year) {
+        super(make, model, year);
         this.numWheels = 4;
     }
 }
 class Motorcycle extends Vehicle {
-    constructor() {
-        super();
+    constructor(make, model, year) {
+        super(make, model, year);
         this.numWheels = 2;
 
     }
@@ -38,8 +38,7 @@ class Garage {
     add(vehicle) {
         if (this.vehicles.length === this.capacity) {
             return "Sorry, we're full.";
-        }
-        if (vehicle instanceof (Vehicle)) {
+        }else if (vehicle instanceof (Vehicle)) {
             this.vehicles.push(vehicle);
             return 'Vehicle added!';
         } else {
